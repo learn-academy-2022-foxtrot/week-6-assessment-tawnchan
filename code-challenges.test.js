@@ -89,26 +89,64 @@ describe("remainingNumbers", () => {
 
 // b) Create the function that makes the test pass.
 
-// First thing is first.. we have to figure out how to select only the numbers of the mixed data array.
-// We can use type() iterate through the array and select only the value of 'number' and return it to a new array.
-// From there we will iterate through the new array along with the method to divide each number by three and return the remainders in a new array.
-
 // b) Create the function that makes the test pass.
 // we need a function that takes in an array and checks for division by three
 // first thing we need to do is filter out all of the non-number elements. We can use filter method
 // once we have the arrays with just numbers, we can chain .map method and divide each number using mod operator
 // resulting array will have division by 3 remainders as elements
 
+// First thing is first.. we have to figure out how to select only the numbers of the mixed data array.
+// We'll use filter() on the elements and select using type() we will select the elements that are strictly
+// equal to 'number' followed by a map(elements) to return the new array of numbers divided by 3.
+
 const remainingNumbers = (array) =>
-  array.filter((e) => typeof e === 'number').map((e) => e % 3);
+  array.filter((elements) => 
+  typeof elements === 'number')
+  .map((elements) => elements % 3);
+
+// Test Suites: 1 passed, 1 total
+// Tests:       2 passed, 2 total
+// Snapshots:   0 total
+// Time:        0.19 s, estimated 1 s
+// Ran all test suites.
+// ✨  Done in 0.97s.
+
 
 // // --------------------3) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
 
 // // a) Create a test with an expect statement using the variables provided.
 
-// const cubeAndSum1 = [2, 3, 4]
-// // Expected output: 99
-// const cubeAndSum2 = [0, 5, 10]
-// // Expected output: 1125
 
-// // b) Create the function that makes the test pass.
+// The instructions ar e confusing... the output is 99.. but the instructions asked for the SUM of ALL the numbers... cubed. This means that you have to add the numbers in teh array first and then cube it... you know what i mean? so the output shouldn't 99 or 
+
+const cubeAndSum1 = [2, 3, 4]
+// Expected output: 99
+const cubeAndSum2 = [0, 5, 10]
+// Expected output: 1125
+
+describe("cubed", () => {
+  it("takes in an array of numbers and returns the sum of all the numbers cubed.", () => {
+    expect(cubed(cubeAndSum1)).toEqual(99);
+    expect(cubed(cubeAndSum2)).toEqual(1125);
+  });
+});
+
+// ReferenceError: cubed is not defined... lets define it theNNnNn...
+
+// b) Create the function that makes the test pass.
+
+// Since we have an array of numbers where we have to do something to each element,
+// can iterate through each element of the array using .map() and cubing each element,
+// which is element to the third power... we use **.
+// After cubing each element, we have to then add the new total of each element
+// which was created with the .map() function.
+// We can use .reduce() to add the totals of the element in the array. 
+
+const cubed = (array) => array.map((element) => element ** 3).reduce((b, a) => b + a);
+
+// Test Suites: 1 passed, 1 total
+// Tests:       3 passed, 3 total
+// Snapshots:   0 total
+// Time:        0.192 s, estimated 1 s
+// Ran all test suites.
+// ✨  Done in 0.68s.
