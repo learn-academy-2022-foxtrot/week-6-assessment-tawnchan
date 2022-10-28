@@ -33,6 +33,21 @@ describe("about", () => {
 
 // ReferenceError: about is not defined, This is a good error.... now we just have to build out the function to make this test pass.
 
+describe("about", () => {
+  it(
+    "returns an array with a sentence about each person with their name capitalized",
+    () => {
+      expect(about(people)).toEqual([
+        "Ford Prefect is a hitchhiker.",
+        "Zaphod Beeblebrox is president of the galaxy.",
+        "Arthur Dent is a radio employee."
+      ]);
+    });
+});
+
+
+// ReferenceError: about is not defined, This is a good error.... now we just have to build out the function to make this test pass.
+
 // b) Create the function that makes the test pass.
 
 // Since the first character of each element of the object array needs to be capitalized.. and theNNNn...
@@ -82,44 +97,11 @@ describe("remainingNumbers", () => {
   });
 });
 
-// ReferenceError: remainingNumbers is not defined, good fail, lets make a function to make this test passsssssss....
 
-// b) Create the function that makes the test pass.
-
-// b) Create the function that makes the test pass.
-// we need a function that takes in an array and checks for division by three
-// first thing we need to do is filter out all of the non-number elements. We can use filter method
-// once we have the arrays with just numbers, we can chain .map method and divide each number using mod operator
-// resulting array will have division by 3 remainders as elements
 
 // First thing is first.. we have to figure out how to select only the numbers of the mixed data array.
-// We'll use filter() on the elements and select using type() we will select the elements that are strictly
-// equal to 'number' followed by a map(elements) to return the new array of numbers divided by 3.
-
-const remainingNumbers = (array) =>
-  array.filter((elements) => 
-  typeof elements === 'number')
-  .map((elements) => elements % 3);
-
-// Test Suites: 1 passed, 1 total
-// Tests:       2 passed, 2 total
-// Snapshots:   0 total
-// Time:        0.19 s, estimated 1 s
-// Ran all test suites.
-// ✨  Done in 0.97s.
-
-
-// // --------------------3) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
-
-// // a) Create a test with an expect statement using the variables provided.
-
-
-// The instructions ar e confusing... the output is 99.. but the instructions asked for the SUM of ALL the numbers... cubed. This means that you have to add the numbers in teh array first and then cube it... you know what i mean? so the output shouldn't 99 or 
-
-const cubeAndSum1 = [2, 3, 4]
-// Expected output: 99
-const cubeAndSum2 = [0, 5, 10]
-// Expected output: 1125
+// We can use type() iterate through the array and select only the value of 'number' and return it to a new array.
+// From there we will iterate through the new array along with the method to divide each number by three and return the remainders in a new array.
 
 describe("cubed", () => {
   it("takes in an array of numbers and returns the sum of all the numbers cubed.", () => {
@@ -131,6 +113,7 @@ describe("cubed", () => {
 // ReferenceError: cubed is not defined... lets define it theNNnNn...
 
 // b) Create the function that makes the test pass.
+
 
 // Since we have an array of numbers where we have to do something to each element,
 // can iterate through each element of the array using .map() and cubing each element,
@@ -147,3 +130,23 @@ const cubed = (array) => array.map((element) => element ** 3).reduce((b, a) => b
 // Time:        0.192 s, estimated 1 s
 // Ran all test suites.
 // ✨  Done in 0.68s.
+=======
+// we need a function that takes in an array and checks for division by three
+// first thing we need to do is filter out all of the non-number elements. We can use filter method
+// once we have the arrays with just numbers, we can chain .map method and divide each number using mod operator
+// resulting array will have division by 3 remainders as elements
+
+const remainingNumbers = (array) =>
+  array.filter((e) => typeof e === 'number').map((e) => e % 3);
+
+// // --------------------3) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
+
+// // a) Create a test with an expect statement using the variables provided.
+
+// const cubeAndSum1 = [2, 3, 4]
+// // Expected output: 99
+// const cubeAndSum2 = [0, 5, 10]
+// // Expected output: 1125
+
+// // b) Create the function that makes the test pass.
+
